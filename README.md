@@ -27,26 +27,26 @@ This tutorial outlines the Setup and Installation of Active directory using a Wi
 <h2>Deployment Steps</h2>
 
 <p>
-
-<img src="https://github.com/user-attachments/assets/c252bbb7-9ff7-4a3a-80f5-d84a4a615191"/>
+<img src="https://github.com/user-attachments/assets/4740f8d5-1708-4b31-a84c-309139b7b219"/>
 
 </p>
 <p>
-Prior to building either of the Virtual Machines, I constructed a Virtual Network called "Active-Directory_VNet". This saves me the headache of having the Virtual Machine allocated to a randomly formed Virtual Network. It also assures that both of the Virtual Machines I'll be creating can share the same Virtual Network. After completing that, I went ahead and created both Virtual Machines: a Windows Server 2022 Virtual Machine.
-</p>
-<br />
-
-<p>
-<img src="https://github.com/user-attachments/assets/76a9664d-1c40-4df3-9515-b35d6879f35f"/>
-</p>
-<p>
-In this step, I retrieved the Windows Server's private IP address, then went to the Windows 10 VM's network settings -> DNS settings and entered the Windows Server's IP address as the custom DNS. Before that though I did log into the Windows Server VM and disabled its firewall as well as making its NIC private IP Address static instead of dynamic.
+In the first step, I logged into the Windows Server VM, opened Server Manager, clicked on Add Roles and Features, and selected Active Directory Domain Services as the feature I wanted to add. The installation of this feature was then completed on the Windows Server VM. After the installation, I noticed the warning errors that appeared, and then I created a forest called "solaris.com" for Active Directory.
 </p>
 <br />
 
 <p>
-<img src="https://github.com/user-attachments/assets/1c1d3c0a-ae89-4053-9f8b-edff70d1f72a"/>
+<img src="https://github.com/user-attachments/assets/c95b8609-d44f-40c6-b107-b8e1d2bafc3c"/>
+<img src="https://github.com/user-attachments/assets/6a7db11a-a9c9-4eb4-9d02-b81f508c2e79"/>
+</p>
+<p>
+For this step, I logged back into the Windows Server VM, which had been turned into a Domain Controller (referred to as the Domain Controller from now on) after it restarted. The first noticeable change was that I now had to log in using solaris.com\labuser. I then created a Domain Admin in Active Directory Users and Computers called "Jane Doe" (solaris.com\jane_admin, password: Password1), along with two Organizational Units: _EMPLOYEES and _ADMINS
+</p>
+<br />
 
+<p>
+<img src="https://github.com/user-attachments/assets/d4554470-1d89-490a-92b1-beeb1ddee60c"/>
+<img src="https://github.com/user-attachments/assets/9ee47b7d-9160-4445-81d0-24640d4980d7"/>
 </p>
 <p>
 For this final step, I performed a quick check to ensure both Virtual Machines were connected properly. While logged into the Windows 10 Virtual Machine, I opened PowerShell and ran the "ping" command with the Windows Server's private IP address, and the ping was successful!
