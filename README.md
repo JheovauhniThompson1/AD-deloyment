@@ -49,8 +49,6 @@ For this step, I logged back into the Windows Server VM, which had been turned i
 <img src="https://github.com/user-attachments/assets/9ee47b7d-9160-4445-81d0-24640d4980d7"/>
 </p>
 <p>
-For this final step, I performed a quick check to ensure both Virtual Machines were connected properly. While logged into the Windows 10 Virtual Machine, I opened PowerShell and ran the "ping" command with the Windows Server's private IP address, and the ping was successful!
-
-Next, I ran "ipconfig /all" on the Windows 10 VM and confirmed that the Windows Server's private IP address appeared in the DNS settings section.
+Back in the Domain Controller, within Active Directory Users and Computers, the Windows 10 VM did indeed show up in the Computers folder. However, I went ahead and created my own Organizational Unit called _CLIENTS and moved the Windows 10 VM from the Computers folder to _CLIENTS.
 </p>
 <br />
