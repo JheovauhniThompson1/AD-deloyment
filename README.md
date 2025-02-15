@@ -11,6 +11,8 @@ This tutorial outlines the Setup and Installation of Active directory using a Wi
 - Remote Desktop
 - Active Directory Domain Services
 - Active Directory Users and Computers
+- Windows 10 Settings(VM)
+- Powershell_ISE
 
 <h2>Operating Systems Used </h2>
 
@@ -23,6 +25,8 @@ This tutorial outlines the Setup and Installation of Active directory using a Wi
 - Created a new forest(can be named virtually anyting, just remember it)
 - Created a Domain Admin in Active Directory users and Computers, as well as a Employees Organizational Unit(Future Reference)
 - Created another OU(Organizational Unit) for the Windows 10 VM
+- Allowed "Domain Users" access to Windows 10 VM as non-adminsitrative users.
+- Created a new file and ran a script in Powershell_ISE
 
 <h2>Deployment Steps</h2>
 
@@ -50,5 +54,21 @@ For this step, I logged back into the Windows Server VM, which had been turned i
 </p>
 <p>
 Back in the Domain Controller, within Active Directory Users and Computers, the Windows 10 VM did indeed show up in the Computers folder. However, I went ahead and created my own Organizational Unit called _CLIENTS and moved the Windows 10 VM from the Computers folder to _CLIENTS.
+</p>
+<br />
+
+<p>
+<img src="https://github.com/user-attachments/assets/f5f38b51-f5d0-4286-8228-f60cddb056b6"/>
+</p>
+<p>
+Going back to the Windows 10 Virtual Machine (now referred to as client-1), I logged in as solaris\jane_admin, opened the Settings application, and searched for "Remote Desktop Settings." Under User Accounts, I clicked on Select users that can remotely access this PC and added Domain users.
+</p>
+<br />
+
+<p>
+<img src="https://github.com/user-attachments/assets/1ec440b6-3e29-4b42-bad1-e79800858ed0"/>
+</p>
+<p>
+Afterwards I logged back into DC-1 as solaris.com\jane_admin, opened PowerShell ISE as an administrator, created a new file, pasted the contents of a pre-made script into it, and saved it as "multiuser_creation." I then ran the script. The script works by randomly generating a total of 7,500 users with random names. However, the users do not have random passwords, as that would be cumbersome to manage. Instead, they all share a single password: Password1.
 </p>
 <br />
