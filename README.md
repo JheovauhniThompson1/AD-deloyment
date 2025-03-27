@@ -3,7 +3,7 @@
 </p>
 
 <h1>Depolying Active Directory within Azure Windows Server VM</h1>
-This tutorial outlines the Setup and Installation of Active directory using a Windows Server Virtual Machine(Azure).<br />
+This tutorial outlines the Setup and Installation of Active directory using a premade Windows 10 and Windows Server Virtual Machine(Azure).<br />
 
 <h2>Environments and Technologies Used</h2>
 
@@ -21,6 +21,7 @@ This tutorial outlines the Setup and Installation of Active directory using a Wi
 
 <h2>High-Level Deployment Steps</h2>
 
+- Logged into both the Windows 10(Client-1) and Windows Server(Domain Controller) Virtual Machines as an admin([Click here to find out more about how these were made](https://github.com/JheovauhniThompson1/AD-config))
 - Installed Active Directory Domain Services on Windows Server VM
 - Created a new forest(can be named virtually anyting, just remember it)
 - Created a Domain Admin in Active Directory users and Computers, as well as a Employees Organizational Unit(Future Reference)
